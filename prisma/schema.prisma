@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  nama String
+  email String @unique
+  password String
+  credits Float
+  points Int
+  role String @default("user")
+  transactions Transactions[]
+}
+
+model Games{
+  id Int @id @default(autoincrement())
+  name String
+  publisher String
+  tips String
+  path String
+  url String
+  image_url String
+  isNew Boolean
+  category Categorys[]
+}
+
+model Categorys{
+  id Int @id @default(autoincrement())
+  name String
+  image_url String
+  games Games @relation(fields: [games_id],references: [id])
+  games_id Int
+  items Items[] // jadi si kategory punya banyak item
+}
+
+model Items{
+  id Int @id @default(autoincrement())
+  category Categorys @relation(fields: [category_id] ,references: [id])
+  category_id Int
+  name String
+  description String
+  price Float
+  discount Float
+  image_url String
+  orders Orders[]
+}
+
+model Orders{
+  id String @unique
+  items Items @relation(fields: [item_id],references: [id])
+  item_id Int
+  token String
+  redirect_url String
+  total_price Float 
+  transactions Transactions?
+}
+
+model Transactions{
+  id String @unique
+  user User @relation(fields: [id_user],references: [id])
+  id_user Int
+  orders Orders @relation(fields: [order_id],references: [id])
+  order_id String @unique
+  status String
+  time String
+}
