@@ -18,7 +18,7 @@ export async function POST(req : Request){
                 data : {id : result.transaction_id,id_user : 1,order_id : result.order_id,status,time : result.transaction_time}
             });
         }
-        return Response.json({message : "Success Creating Or Updating Transaction"},{status : 200})
+        return Response.json({messagce : "Success Creating Or Updating Transaction"},{status : 200})
     }catch(err){
         console.log("ada error\n" + err)
     } 

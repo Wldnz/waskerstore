@@ -32,7 +32,7 @@ export async function POST(req : Request){
         // create data order
         await Promise.all([
             prisma.orders.create({data : {id : order_id, token : transaction.token, redirect_url : transaction.redirect_url, item_id : order.item.id,total_price : order.item.price}}),
-            prisma.transactions.create({data : {id : new Date().getTime.toString() + order_id,id_user : 1,order_id,status : "pending",time : new Date().toISOString()}})
+            prisma.transactions.create({data : {id : `transaction-${new Date().getTime.toString()}`,id_user : 1,order_id,status : "pending",time : new Date().toISOString()}})
         ])
         const response = createSuccessResponse("Success Make Order",200,{order_id,token : transaction.token, total_price : order.item.price,redirect_url : transaction.redirect_url},true);
         return Response.json(response);
