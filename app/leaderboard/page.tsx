@@ -5,6 +5,16 @@ import { useEffect, useState } from "react";
 
 const typeMedal = ["gold","silver","bronze"];
 
+interface User{
+    id : number
+    nama : string
+    email : string
+    credits : number
+    points : number
+    role : string
+}
+
+
 export default function Leaderboard(){
     const [users,setUsers] = useState([]);
 
@@ -22,8 +32,8 @@ export default function Leaderboard(){
             <h2 className="font-bold text-2xl text-white">Leaderboard</h2>
             {/* {users.map(value => (<h2>{value.nama}</h2>))} */}
             <div className="w-full flex flex-col items-center gap-2">
-                {users.map((value : any,index : number) => {
-                    return <UserCard name={value.nama} points={value.points} type={index < 3? typeMedal[index] : "" } />
+                {users.map((value : User,index : number) => {
+                    return <UserCard name={value.nama} points={value.points} type={index < 3? typeMedal[index] : "" } key={index}/>
                 })}
             </div>
         </div>

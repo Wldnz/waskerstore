@@ -1,5 +1,4 @@
 "use client"
-import Navigation from "@/components/Navigation";
 import payUsingToken from "@/utils/payUsingToken";
 import Image from "next/image";
 import { useParams } from "next/navigation";
@@ -90,26 +89,26 @@ export default function ORDER_ID(){
                </div>
             </div> : (
                 <>  
-                <h2 className="font-bold text-2xl text-center">CANNOT FOUND ORDERED ID WITH <br/>"{order_id}"</h2>
+                <h2 className="font-bold text-2xl text-center">CANNOT FOUND ORDERED ID WITH <br/>{order_id}</h2>
                 <button onClick={() => history.back()}>Kembali</button></>)}
         </div>
     )
 }
 
 
-function setTransactionStatusText(status_code : string){
-   switch(status_code){
-        case("200") : {
-            return "success";
-            break;
-        }
-        case("201") : {
-            return "pending";
-            break;
-        }
-        case("407") : {
-            return "Failed";
-            break;
-        }
-   }
-}
+// function setTransactionStatusText(status_code : string){
+//    switch(status_code){
+//         case("200") : {
+//             return "success";
+//             break;
+//         }
+//         case("201") : {
+//             return "pending";
+//             break;
+//         }
+//         case("407") : {
+//             return "Failed";
+//             break;
+//         }
+//    }
+// }

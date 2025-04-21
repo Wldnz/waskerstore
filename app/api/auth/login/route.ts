@@ -23,9 +23,8 @@ export async function POST(req : Request){
 
 
 const createResponse = (
-    message : any,
+    message : string,
     status : number,
-    data? : any
 ) => {
-    return NextResponse.json({message, data : data? data : ""}, {status})
+    return NextResponse.json({message}, {status})
 }

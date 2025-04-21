@@ -1,8 +1,6 @@
-//@ts-ignore
 import { CheckOrder } from "@/model/Model";
 import { PrismaClient } from "@prisma/client";
 import midtransClient from "midtrans-client";
-import { json } from "stream/consumers";
 
 type BodyProps = {
     order_id : string,
@@ -12,11 +10,11 @@ type BodyProps = {
 
 export async function POST(req : Request){
     const prisma = new PrismaClient();
-    let snap = createSnap();
+    const snap = createSnap();
     try{
         const {order_id,orderedItem : order} : BodyProps = await req.json(); //{order_id,total_price,email}
         if(order == undefined || order.item == undefined || !order.email) return Response.json({ error: "please provide data!",isSuccess : false }, { status: 500 });
-        let parameter = {
+        const parameter = {
             transaction_details : {
                 order_id : order_id,
                 gross_amount : order.item.price
@@ -36,7 +34,7 @@ export async function POST(req : Request){
         ])
         const response = createSuccessResponse("Success Make Order",200,{order_id,token : transaction.token, total_price : order.item.price,redirect_url : transaction.redirect_url},true);
         return Response.json(response);
-    }catch(error : any){
+    }catch(error){
         console.log(error);
         return Response.json({ error: "Something Happened!",isSuccess : false }, { status: 500 });;
     }

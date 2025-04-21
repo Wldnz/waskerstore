@@ -1,33 +1,6 @@
 "use client";
 import ContainerGame from "@/components/ContainerGame";
-import { useRouter } from "next/navigation";
-import { useEffect,useState } from "react";
-
-
-
-// const listGames = [
-//     {
-//         name : "Mobile Legends: Bang Bang",
-//         publisher : "Moonton",
-//         action : "mobile-legends",
-//         image : "https://cdn6.aptoide.com/imgs/9/d/2/9d250e67a2e1a55e8507511e24af05a7_icon.png",
-//         isNew : false
-//     },
-//     {
-//         name : "Free Fire",
-//         publisher : "Garena",
-//         action : "free-fire",
-//         image : "https://i.pinimg.com/736x/c0/09/63/c00963ec1cb2e218118301cfd112ad29.jpg",
-//         isNew : false
-//     },
-//     {
-//         name : "Valorant",
-//         publisher : "Riot Games",
-//         action : "valorant",
-//         image : "https://i.pinimg.com/474x/a4/00/33/a400333f7c9137ad1ebb9ded69755c48.jpg",
-//         isNew : true
-//     },
-// ]
+import { useEffect, useState } from "react";
 
 type Game = {
     id: number

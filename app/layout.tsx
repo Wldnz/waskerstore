@@ -12,9 +12,6 @@ const poppins = Poppins({
     subsets : ["latin"]
 })
 
-const META = {
-    title : "w",
-}
 
 export default function RootLayout({children} : Readonly<{children : React.ReactNode}>){
     const [showNavigation,setShowNavigation] = useState<boolean>(false);

@@ -2,8 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { NextRequest } from "next/server";
 
 
-export async function GET(req : NextRequest){
-    // const params = req.nextUrl.searchParams.get("")
+export async function GET(){
     const prisma = new PrismaClient();
 
    try{

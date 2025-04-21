@@ -1,16 +1,15 @@
 "use client";
-import { snap } from "@/utils/midtrans";
-import { Params } from "next/dist/server/request/params";
 import Image from "next/image";
-import { useParams, usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import {currentGame,category,Item,userID, CheckOrder} from "@/model/Model";
-import checkUsername,{api_url} from "@/utils/checkUsername";
+import { currentGame, Item,userID, CheckOrder } from "@/model/Model";
+import checkUsername,{ api_url } from "@/utils/checkUsername";
 import payUsingToken from "@/utils/payUsingToken";
 import numberToCurrency from "@/utils/formatNumber";
 import sendPost from "@/utils/sendPost";
   
 
+interface interfaceUserId{userID : number,zoneID : number,name : string,found : boolean}
 
 
 export default function Game(){

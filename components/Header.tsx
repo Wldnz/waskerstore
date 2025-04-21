@@ -1,23 +1,19 @@
 
 "use client";
-import Image from "next/image";
 import Link from "next/link";
-import test from "node:test";
-import { Input } from "postcss";
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
-import FeatureHeader from "./FeatureHeader";
 
-const user = {
-    name : "Starfours_",
-    email : "starfours@gmail.com",
-    password : "0293847", // jangan diambil passwordnya ya (ketika fecthing data)!,
-    image : "/image_user.png",  
-    balance : {
-        credits : 2.000,
-        points : 0
-    }
-}
+// const user = {
+//     name : "Starfours_",
+//     email : "starfours@gmail.com",
+//     password : "0293847", // jangan diambil passwordnya ya (ketika fecthing data)!,
+//     image : "/image_user.png",  
+//     balance : {
+//         credits : 2.000,
+//         points : 0
+//     }
+// }
 const Header = ({setShowNavigation} : {setShowNavigation : React.Dispatch<any>}) => {
     const [text,setText] = useState(""); 
     return( 

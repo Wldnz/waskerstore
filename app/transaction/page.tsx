@@ -1,3 +1,7 @@
 import { snap } from "@/utils/midtrans";
 
-console.log(snap)
+export default function Transaction(){
+    return <>
+        <h1>Hello, this transaction menu</h1>
+    </>;
+}
