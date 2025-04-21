@@ -23,7 +23,7 @@ export default function Home(){
 
     useEffect(() => {
         const fetching = async() => {
-            const data = await (await fetch("http://localhost:3000/api/games")).json();
+            const data = await (await fetch(`${process.env.NEXT_PUBLIC_API_URL}/games`)).json();
             setGames(data);
         }
         fetching();
